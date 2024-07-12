@@ -10,9 +10,21 @@ type Location struct {
 }
 
 func (l *Location) Upsert(location *entity.Location) error {
-	err := l.DB.Where(entity.Location{DeviceId: location.DeviceId}).Assign(location).FirstOrCreate(location).Error
-	if err != nil {
-		return err
+	var existingLocation entity.Location
+	result := l.DB.Where(entity.Location{DeviceId: location.DeviceId}).First(&existingLocation)
+	if result.Error != nil && result.Error != gorm.ErrRecordNotFound {
+		return result.Error
 	}
+
+	if result.Error == gorm.ErrRecordNotFound {
+		result = l.DB.Create(location)
+	} else {
+		result = l.DB.Model(&existingLocation).Updates(location)
+	}
+
+	if result.Error != nil {
+		return result.Error
+	}
+
 	return nil
 }

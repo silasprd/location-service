@@ -16,6 +16,10 @@ func main() {
 	kafka.InitProducer(kafkaBrokerURL, topic)
 	defer kafka.CloseProducer()
 
+	go kafka.GetMessages(kafkaBrokerURL, topic, database.DB)
+
 	websocket.StartServer(":8080")
+
+	select {}
 
 }

@@ -38,7 +38,7 @@ const watchLocation = () => {
         (position) => {
           const geolocationValue = {
             deviceId: deviceId.value,
-            latitude: position.coords.latitude.toString(),
+            latitude: position.coords.latitude,
             longitude: position.coords.longitude,
             accuracy: position.coords.accuracy,
             speed: position.coords.speed,

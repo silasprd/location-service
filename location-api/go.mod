@@ -4,7 +4,10 @@ go 1.22.4
 
 require (
 	github.com/gorilla/websocket v1.5.3
+	github.com/segmentio/kafka-go v0.4.47
 	github.com/spf13/viper v1.19.0
+	gorm.io/driver/mysql v1.5.7
+	gorm.io/gorm v1.25.11
 )
 
 require (
@@ -21,10 +24,7 @@ require (
 	github.com/lestrrat-go/option v1.0.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/segmentio/kafka-go v0.4.47 // indirect
 	golang.org/x/crypto v0.23.0 // indirect
-	gorm.io/driver/mysql v1.5.7 // indirect
-	gorm.io/gorm v1.25.11 // indirect
 )
 
 require (

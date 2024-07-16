@@ -7,7 +7,7 @@ import (
 	"github.com/silasprd/sailor-location-service/location-api/internal/kafka"
 )
 
-func SendMessage(w http.ResponseWriter, r *http.Request) {
+func HandleMessage(w http.ResponseWriter, r *http.Request) {
 
 	conn, err := WebSocketConnect(w, r)
 	if err != nil {
@@ -22,7 +22,7 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 
-		log.Printf("Received message: %s", message)
+		log.Printf("Sent message: %s", message)
 
 		// Enviar mensagem ao Kafka
 		if err := kafka.SendMessage(nil, message); err != nil {

@@ -24,5 +24,6 @@ func InitProducer(kafkaBrokerURL string, topic string) {
 func CloseProducer() {
 	if writer != nil {
 		writer.Close()
+		log.Println("Kafka writer closed")
 	}
 }

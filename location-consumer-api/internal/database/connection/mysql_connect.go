@@ -3,7 +3,7 @@ package database
 import (
 	"log"
 
-	"github.com/silasprd/sailor-location-service/location-api/internal/entity"
+	"github.com/silasprd/sailor-location-service/location-consumer-api/internal/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

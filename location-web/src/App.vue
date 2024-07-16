@@ -47,7 +47,7 @@ const watchLocation = () => {
             timestamp: position.timestamp
           }
           location.value = geolocationValue
-          console.log("Location: ", geolocationValue)
+          console.log("Location: ", geolocationValue.timestamp)
           if (socket.value) socket.value.send(JSON.stringify(location.value));
         },
         (error) => {

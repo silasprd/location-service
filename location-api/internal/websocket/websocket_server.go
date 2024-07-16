@@ -6,7 +6,7 @@ import (
 )
 
 func StartServer(address string) {
-	http.HandleFunc("/ws", SendMessage)
+	http.HandleFunc("/ws", HandleMessage)
 	log.Printf("WebSocket server starting at %s", address)
 	log.Fatal(http.ListenAndServe(address, nil))
 }

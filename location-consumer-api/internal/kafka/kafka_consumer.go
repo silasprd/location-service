@@ -42,7 +42,16 @@ func GetMessages() {
 			log.Printf("Error upserting location: %v", err)
 		}
 
+		pastLocationDB := location_db.PastLocation{MongoDB: database.MongoDB}
+		if err := pastLocationDB.Save(&location); err != nil {
+			log.Printf("Error saving location: %v", err)
+		}
+
 		websocket.BroadcastMessage(msg.Value)
+
+		if err := reader.CommitMessages(context.Background(), msg); err != nil {
+			log.Printf("Error committing offset: %v", err)
+		}
 
 	}
 

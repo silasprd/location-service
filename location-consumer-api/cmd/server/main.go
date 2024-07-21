@@ -12,6 +12,8 @@ func main() {
 
 	database.MySQLInitDB()
 
+	database.MongoInitDB()
+
 	kafka.InitConsumer(kafkaBrokerURL, topic)
 
 	go websocket.StartServer(":8081")

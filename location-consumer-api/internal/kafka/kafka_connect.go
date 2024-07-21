@@ -10,8 +10,10 @@ var reader *kafka.Reader
 
 func InitConsumer(brokerURL, topic string) {
 	reader = kafka.NewReader(kafka.ReaderConfig{
-		Brokers: []string{brokerURL},
-		Topic:   topic,
+		Brokers:     []string{brokerURL},
+		Topic:       topic,
+		GroupID:     "location-processor-group",
+		StartOffset: kafka.LastOffset,
 	})
 	log.Println("Kafka consumer initialized")
 }

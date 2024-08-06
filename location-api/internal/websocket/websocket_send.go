@@ -22,8 +22,6 @@ func HandleMessage(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 
-		log.Printf("Sent message: %s", message)
-
 		// Enviar mensagem ao Kafka
 		if err := kafka.SendMessage(nil, message); err != nil {
 			log.Printf("Error sending message to Kafka: %v", err)

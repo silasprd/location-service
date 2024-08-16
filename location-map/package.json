@@ -9,9 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "axios": "^1.7.4",
+    "leaflet": "^1.9.4",
+    "ol": "^10.0.0",
+    "ol-contextmenu": "^5.5.0",
+    "ol-ext": "^4.0.22",
+    "vue": "^3.4.29",
+    "vue3-openlayers": "^11.1.0"
   },
   "devDependencies": {
+    "@types/node": "^22.3.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",

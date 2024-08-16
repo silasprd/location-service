@@ -2,6 +2,7 @@ package kafka
 
 import (
 	"log"
+	"time"
 
 	"github.com/segmentio/kafka-go"
 )
@@ -14,7 +15,9 @@ func InitProducer(kafkaBrokerURL string, topic string) {
 		for {
 			err := CreateTopic(topic, 1, 1)
 			if err != nil {
-				log.Fatalf("Failed to create Kafka topic: %v", err)
+				log.Printf("Failed to create Kafka topic: %v. Retrying in 15 seconds...", err)
+				time.Sleep(15 * time.Second)
+				continue
 			}
 
 			writer = kafka.NewWriter(kafka.WriterConfig{

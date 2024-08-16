@@ -22,7 +22,7 @@ const watchLocation = () => {
     return;
   }
 
-  socket.value = new WebSocket("ws://localhost:8080/ws");
+  socket.value = new WebSocket("wss://192.168.68.102:8080/ws");
 
   socket.value.onopen = () => {
     console.log("Conectado ao WebSocket");

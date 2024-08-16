@@ -1,4 +1,4 @@
-package database
+package location
 
 import (
 	"context"
@@ -61,4 +61,11 @@ func (m *PastLocation) Save(location *entity.Location) error {
 
 	log.Println("Location saved to MongoDB")
 	return nil
+}
+
+func (l *Location) FindAll() ([]entity.Location, error) {
+	var locations []entity.Location
+	err := l.DB.Find(&locations).Error
+
+	return locations, err
 }

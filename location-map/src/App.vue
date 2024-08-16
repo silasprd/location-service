@@ -1,22 +1,28 @@
 
 <template>
   <div>
-    <h2>Conectar ao Benthos via WebSocket</h2>
     <button @click="watchLocation">Monitorar</button>
+    <button @click="getLocations">GET</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import axios from 'axios';
 
 const socket = ref<WebSocket | null>(null)
+
+const getLocations = () => {
+  axios.get("https://192.168.68.102:8082/locations").then((response: any) => {
+    console.log(response)
+  })
+}
 
 const watchLocation = () => {
 
   event?.preventDefault()
 
-  socket.value = new WebSocket("ws://localhost:8081/ws");
+  socket.value = new WebSocket("wss://192.168.68.102:8082/ws");
 
   socket.value.onopen = () => {
     console.log("WebSocket conectado");
@@ -41,6 +47,7 @@ const watchLocation = () => {
 
 div{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

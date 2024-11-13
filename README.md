@@ -9,7 +9,7 @@ Este projeto tem como objetivo desenvolver um sistema de persistência e transmi
 * **WebSocket:** Para transmissão em tempo real de dados de localização para os clientes.
 
 #### Arquitetura do sistema
-![Arquitetura](./assets/architecture.png "Arquitetura")
+![Arquitetura](./assets/arch.png "Arquitetura")
 * **Publisher API:** Recebe os dados de localização das embarcações ou serviços de localização. Esses dados são publicados no Kafka, permitindo o processamento e armazenamento distribuído.
 
 * **Kafka Broker:** Atua como um intermediário confiável para o fluxo de mensagens, armazenando os dados de localização recebidos do Publisher API e disponibilizando-os para consumo.

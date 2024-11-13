@@ -11,8 +11,12 @@ Este projeto tem como objetivo desenvolver um sistema de persistência e transmi
 #### Arquitetura do sistema
 ![Arquitetura](./assets/architecture.png "Arquitetura")
 * **Publisher API:** Recebe os dados de localização das embarcações ou serviços de localização. Esses dados são publicados no Kafka, permitindo o processamento e armazenamento distribuído.
-* **Kafka Broker:** Atua como um intermediário confiável para o fluxo de mensagens, armazenando os dados de localização recebidos do Publisher API e disponibilizando-os para consumo..
+
+* **Kafka Broker:** Atua como um intermediário confiável para o fluxo de mensagens, armazenando os dados de localização recebidos do Publisher API e disponibilizando-os para consumo.
+
 * **Consumer API:** Consome os dados de localização do Kafka e os armazena na bases de dados (MongoDB, MySQL). Além disso, a API serve os dados para interfaces de usuário.
+
 * **MySQL:** Focado na transmissão em tempo real dos dados de localização para os clientes, o MySQL organiza e disponibiliza os dados mais recentes em uma estrutura relacional.
+
 * **MongoDB:** Atua como a base de dados principal para o armazenamento a longo prazo dos dados de localização, contendo o histórico completo dos dados de localização recebidos das embarcações.
 
